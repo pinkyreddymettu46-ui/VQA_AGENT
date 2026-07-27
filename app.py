@@ -154,5 +154,8 @@ with gr.Blocks(theme=theme, css=CUSTOM_CSS) as demo:
     )
 
 # FIXED: Spacing in __name__ guard
-if __name__ == "__main__":
-    demo.queue().launch()
+    if __name__ == "__main__":
+     demo.queue().launch(
+        server_name="0.0.0.0",
+        server_port=int(os.environ.get("PORT", 7860)),
+    )
